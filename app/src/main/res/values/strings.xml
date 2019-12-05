@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WaetherDemo</string>
+    <string name="base_url">http://api.apixu.com/v1/</string>
+    <string name="degree">o</string>
+    <string name="error_msg">Something Went Wrong at our end!</string>
+    <string name="retry_text">Retry</string>
+</resources>

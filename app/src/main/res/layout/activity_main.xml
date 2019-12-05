@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable name="weather" type="com.gojek.domain.entities.CityWeather"/>
+        <variable name="temperature" type="com.gojek.domain.entities.Temperature"/>
+        <variable name="viewModel" type="com.gojek.waetherdemo.views.viewmodels.WeatherUpdateViewModel"/>
+    </data>
+
+
+    <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screen_bg"
+            tools:context=".views.MainActivity">
+
+
+        <LinearLayout
+                android:id="@+id/mainParent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_top">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:orientation="horizontal">
+                <TextView
+                        android:id="@+id/temp"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/dark_grey"
+                        android:gravity="center"
+                        android:textSize="@dimen/temp_text_size"
+                        android:textStyle="bold"
+                        android:layout_height="wrap_content"
+                        android:text="@{temperature.celcious == 0.0 ? `` : String.valueOf(temperature.celcious)}"
+                />
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/dark_grey"
+                        android:gravity="top"
+                        android:layout_gravity="top"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:textSize="@dimen/degree_text_size"
+                        android:layout_height="wrap_content"
+                        android:text="@{temperature.celcious == 0.0 ? `` : @string/degree}"
+                />
+
+            </LinearLayout>
+
+
+            <TextView
+                    android:id="@+id/cityName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:textSize="@dimen/city_text_size"
+                    android:textStyle="bold"
+                    android:textColor="@color/blueish"
+                    android:text="@{weather.cityName}"
+            />
+
+            <RelativeLayout
+                    android:visibility="invisible"
+                    android:id="@+id/bottom"
+                    android:layout_width="match_parent" android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/list_view_parent_top_margin"
+                    android:background="@color/white">
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/lastFiveDaysWeather"
+                        android:layout_width="match_parent"
+                        android:layout_margin="@dimen/recycler_view_margin"
+                        android:layout_height="match_parent"
+                />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+                android:id="@+id/loading"
+                android:layout_width="@dimen/progress_loader_dimen"
+                android:layout_height="@dimen/progress_loader_dimen"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_loading"
+        />
+
+        <include layout="@layout/error_layout"
+        />
+
+
+    </RelativeLayout>
+</layout>

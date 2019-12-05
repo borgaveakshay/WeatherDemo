@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_top">56dp</dimen>
+    <dimen name="temp_text_size">96sp</dimen>
+    <dimen name="degree_text_size">35sp</dimen>
+    <dimen name="city_text_size">36sp</dimen>
+    <dimen name="list_view_parent_top_margin">62dp</dimen>
+    <dimen name="recycler_view_margin">16dp</dimen>
+    <dimen name="item_row_height">80dp</dimen>
+    <dimen name="row_text_size">16sp</dimen>
+    <dimen name="progress_loader_dimen">96dp</dimen>
+    <dimen name="error_text_size">56sp</dimen>
+</resources>
